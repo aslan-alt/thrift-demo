@@ -120,7 +120,7 @@ class InvalidaOperation(TException):
 class Work(object):
     """
     Attributes:
-     - num
+     - num1
      - num2
      - op
      - comment
@@ -128,8 +128,8 @@ class Work(object):
     """
 
 
-    def __init__(self, num=0, num2=None, op=None, comment=None,):
-        self.num = num
+    def __init__(self, num1=0, num2=None, op=None, comment=None,):
+        self.num1 = num1
         self.num2 = num2
         self.op = op
         self.comment = comment
@@ -145,7 +145,7 @@ class Work(object):
                 break
             if fid == 1:
                 if ftype == TType.I32:
-                    self.num = iprot.readI32()
+                    self.num1 = iprot.readI32()
                 else:
                     iprot.skip(ftype)
             elif fid == 2:
@@ -173,9 +173,9 @@ class Work(object):
             oprot.trans.write(oprot._fast_encode(self, [self.__class__, self.thrift_spec]))
             return
         oprot.writeStructBegin('Work')
-        if self.num is not None:
-            oprot.writeFieldBegin('num', TType.I32, 1)
-            oprot.writeI32(self.num)
+        if self.num1 is not None:
+            oprot.writeFieldBegin('num1', TType.I32, 1)
+            oprot.writeI32(self.num1)
             oprot.writeFieldEnd()
         if self.num2 is not None:
             oprot.writeFieldBegin('num2', TType.I32, 2)
@@ -214,7 +214,7 @@ InvalidaOperation.thrift_spec = (
 all_structs.append(Work)
 Work.thrift_spec = (
     None,  # 0
-    (1, TType.I32, 'num', None, 0, ),  # 1
+    (1, TType.I32, 'num1', None, 0, ),  # 1
     (2, TType.I32, 'num2', None, None, ),  # 2
     (3, TType.I32, 'op', None, None, ),  # 3
     (4, TType.STRING, 'comment', 'UTF8', None, ),  # 4
